@@ -5,10 +5,10 @@ class ExcelHandler:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
     
-    def read_excel(self, file_path):
+    def read_excel(self, file_path, sheet_name=0):
         """Read an Excel file and return a pandas DataFrame"""
         try:
-            df = pd.read_excel(file_path)
+            df = pd.read_excel(file_path, sheet_name=sheet_name)
             self.logger.info(f"Successfully read {file_path}")
             return df
         except Exception as e:

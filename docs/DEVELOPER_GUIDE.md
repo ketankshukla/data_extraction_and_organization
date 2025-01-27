@@ -141,3 +141,56 @@ python -m pytest tests/
 - [Python Documentation](https://docs.python.org/)
 - [Pandas Documentation](https://pandas.pydata.org/docs/)
 - [OpenPyXL Documentation](https://openpyxl.readthedocs.io/)
+
+## Data Processing Pipeline
+
+The data processing pipeline is implemented in `src/data_processor.py` and consists of the following components:
+
+### Core Components
+
+1. **DataProcessor Class**
+   - Main class that orchestrates the data processing workflow
+   - Handles file reading, cleaning, and saving processed data
+   - Implements specialized cleaning functions for different data types
+   - Generates detailed processing summaries and logs
+
+2. **ExcelHandler Class**
+   - Handles Excel file operations (reading and writing)
+   - Supports different sheet names and data formats
+   - Implements error handling for Excel operations
+
+### Logging and Error Handling
+
+The pipeline uses Python's built-in logging module with the following features:
+- Detailed logging of processing steps and errors
+- Both console and file output (logs stored in `data/output/processing.log`)
+- Log rotation to prevent excessive file sizes
+- Comprehensive error tracking and reporting
+
+### Data Cleaning Functions
+
+Specialized cleaning functions for different data types:
+- `clean_customer_data`: Handles customer information and deduplication
+- `clean_transaction_data`: Processes transaction records and payment methods
+- `clean_inventory_data`: Manages product inventory and stock levels
+- `clean_shipping_data`: Validates shipping dates and addresses
+- `clean_review_data`: Processes product reviews and ratings
+- `clean_error_logs`: Handles system error logs and timestamps
+
+### Output Files
+
+The pipeline generates several output files in the `data/output` directory:
+1. Processed data files with `processed_` prefix
+2. Processing summary with statistics for each file
+3. Detailed log file with processing steps and errors
+
+### Sample Data
+
+Sample data files are provided in `data/input` for testing:
+- `customer_data.xlsx`: Customer information
+- `transaction_data.xlsx`: Transaction records
+- `inventory_data.xlsx`: Product inventory
+- `shipping_data.xlsx`: Shipping records
+- `product_reviews.xlsx`: Product reviews
+- `error_logs.xlsx`: System error logs
+- `combined_data.xlsx`: Combined dataset
